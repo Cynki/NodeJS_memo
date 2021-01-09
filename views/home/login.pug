@@ -1,0 +1,28 @@
+doctype html
+html
+    head
+        include ../partials/head.pug
+    body
+        include ../partials/nav.pug
+
+        .container
+            h3.mb-3 Login
+            form.user-form(action="/login", method="post")
+                .form-group.row
+                    label.col-sm-3.col-form-label(for="username") Username
+                    .col-sm-9
+                        input.form-control#username(class=(errors.username)?"is-valid":"", type="text", name="username", value=username)
+                        if errors.username
+                            span.invalid-feedback= errors.username
+                .form-group.row
+                    label.col-sm-3.col-form-label(for="password") Password
+                    .col-sm-9
+                        input.form-control#password(class=(errors.password)?"is-valid":"", type="text", name="password", value="")
+                        if errors.password
+                            span.invalid-feedback= errors.password
+                
+                if errors.login
+                    .invalid-feedback.d-block= errors.login
+                
+                .mt-3
+                    input.btn.btn-primary(type="submit", value="Submit")

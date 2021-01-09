@@ -1,0 +1,34 @@
+doctype html
+html
+    head
+        include ../partials/head.pug
+    body
+        include ../partials/nav.pug
+
+        .container.mb-3
+            nav(aria-label="breadcrumb")
+                ol.breadcrumb.p-1.pl-2.pr-2
+                    li.breadcrumb-item
+                        a(href="/") Home
+                    li.breadcrumb-item
+                        a(href="/posts") Board
+                    li.breadcrumb-item
+                        a(href="/posts/"+post._id)= post.title
+                    li.breadcrumb-item.active(aria-current="page") Edit Post
+
+            form(action="/posts/"+post._id+"?_method=put", method="post")
+                .form-group
+                    label(for="title") Title
+                    input.form-control(class=(errors.title)?"is-invalid":"", type="text", id="title", name="title", value=post.title)
+                    if errors.title
+                        span.invalid-feedback= errors.title.message
+                .form-group
+                    label(for="body") Body
+                    textarea.form-control#body(class=(errors.title)?"is-invalid":"", name="body", rows="5")= post.body
+                    if (errors.body)
+                        span.invalid-feedback= errors.body.message
+                if errors.unhandled
+                    .invalid-feedback.b-block= errors.unhandled
+                div
+                    a.btn.btn-primary(href="/posts/"+post._id) Back
+                    button.btn.btn-primary(type="submit") Submit

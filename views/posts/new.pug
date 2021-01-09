@@ -1,0 +1,32 @@
+doctype html
+html
+    head
+        include ../partials/head.pug
+    body
+        include ../partials/nav.pug
+
+        .container.mb-3
+            nav(aria-label="breadcrumb")
+                ol.breadcrumb.p-1.pl-2.pr-2
+                    li.breadcrumb-item
+                        a(href="/") Home
+                    li.breadcrumb-item
+                        a(href="/posts") Board
+                    li.breadcrumb-item.active(aria-current="page") New Post
+
+            form(action="/posts", method="post")
+                .form-group
+                    label(for="title") Title
+                    input.form-control#title(class=(errors.title)?"is-invalid":"", type="text", name="title", value="")
+                    if (errors.title)
+                        span.invalid-feedback= errors.title.message
+                .form-group
+                    label(for="body") Body
+                    textarea.form-control#body(class=(errors.body)?"is-invalid":"", name="body", rows="5")
+                    if (errors.body)
+                        span.invalid-feedback= errors.body.message
+                if errors.unhandled
+                    .invalid-feedback.d-block= errors.unhandled
+                .mt-3
+                    a.btn.btn-primary(href="/posts") Back
+                    button.btn.btn-primary(type="submit") Submit

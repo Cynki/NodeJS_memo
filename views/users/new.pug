@@ -1,0 +1,49 @@
+doctype html
+html
+    head
+        include ../partials/head.pug
+    body
+        include ../partials/nav.pug
+
+        .container.mb-3
+            h3.contentBoxTop.mb-3 New User
+            form(action="/users", method="post")
+                .form-group.row
+                    label.col-sm-3.col-form-label(for="username") Username*
+                    .col-sm-9
+                        input.form-control#username(class=(errors.username)?"is-invalid":"", type="text", name="username", value="")
+                        if errors.username
+                            span.invalid-feedback= errors.username.message
+                .form-group.row
+                    label.col-sm-3.col-form-label(for="name") Name*
+                    .col-sm-9
+                        input.form-control#name(class=(errors.name)?"is-invalid":"", type="text", name="name", value="")
+                        if errors.name
+                            span.invalid-feedback= errors.name.message
+                .form-group.row
+                    label.col-sm-3.col-form-label(for="email") Email
+                    .col-sm-9
+                        input.form-control#email(class=(errors.email)?"is-invalid":"", type="text", name="email", value="")
+                        if errors.email
+                            span.invalid-feedback= errors.email.message
+                .form-group.row
+                    label.col-sm-3.col-form-label(for="password") Password*
+                    .col-sm-9
+                        input.form-control#password(class=(errors.password)?"is-invalid":"", type="password", name="password", value="")
+                        if errors.password
+                            span.invalid-feedback= errors.password.message
+                .form-group.row
+                    label.col-sm-3.col-form-label(for="passwordConfirmation") Password Confirmation*
+                    .col-sm-9.col-sm-offset-3
+                        input.form-control#passwordConfirmation(class=(errors.passwordConfirmation)?"is-invalid":"", type="text", name="passwordConfirmation", value="")
+                        if errors.passwordConfirmination
+                            span.invalid-feedback= errors.passwordConfirmination.message
+                
+                p
+                    small *Required
+
+                if errors.unhandled
+                    .alert.alert-danger= errors.unhandled
+
+                .form-group
+                    button.btn.btn-primary(type="submit") Submit

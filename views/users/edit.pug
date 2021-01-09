@@ -1,0 +1,57 @@
+doctype html
+html
+    head
+        include ../partials/head.pug
+    body
+        include ../partials/nav.pug
+
+        .container.mb-3
+            h3.mb-3 Edit User
+            form(action="/users/"+user.username+"?_method=put", method="post")
+                .form-group.row
+                    label.col-sm-3.col-form-label(for="currentPassword") Current Password*
+                    .col-sm-9.col-sm-offset-3
+                        input.form-control#currentPassword(class=(errors.currentPassword)?"is-invalid":"", type="password", name="currentPassword", value="")
+                        if errors.currentPassword
+                            span.invalid-feedback= errors.currntPassword.message
+                hr
+                .form-group.row
+                    label.col-sm-3.col-form-label(for="username") Username*
+                    .col-sm-9
+                        input.form-control#username(class=(errors.username)?"is-invalid":"", type="text", name="username", value=user.username)
+                        if errors.username
+                            span.invalid-feedback= errors.username.message
+                .form-group.row
+                    label.col-sm-3.col-form-label(for="name") Name*
+                    .col-sm-9
+                        input.form-control#name(class=(errors.name)?"is-invalid":"", type="text", name="name", value=user.name)
+                        if errors.name
+                            span.invalid-feedback= errors.name.message
+                .form-group.row
+                    label.col-sm-3.col-form-label(for="currentPassword") Email
+                    .col-sm-9
+                        input.form-control#email(class=(errors.email)?"is-invalid":"", type="text", name="email", value=user.email)
+                        if errors.email
+                            span.invalid-feedback= errors.email.message
+                .form-group.row
+                    label.col-sm-3.col-form-label(for="newPassword") New Password
+                    .col-sm-9.col-sm-offset-3
+                        input.form-control#newPassword(class=(errors.newPassword)?"is-invalid":"", type="password", name="newPassword", value="")
+                        if errors.newPassword
+                            span.invalid-feedback= errors.newPassword.message
+                .form-group.row
+                    label.col-sm-3.col-form-label(for="passwordConfirmation") Password Confirmation
+                    .col-sm-9.col-sm-offset-3
+                        input.form-control#passwordConfirmation(class=(errors.passwordConfirmation)?"is-invalid":"", type="password", name="passwordConfirmation", value="")
+                        if errors.passwordConfirmation
+                            span.invalid-feedback= errors.passwordConfirmation.message
+
+                p
+                    small *Required
+
+                if errors.unhandled
+                    .alert.alert-danger= errors.unhandled
+                    
+                .buttons
+                    a.btn.btn-primary(href="/users/"+user.username) Back
+                    button.btn.btn-primary(type="submit") Submit

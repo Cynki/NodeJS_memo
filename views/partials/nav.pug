@@ -1,0 +1,26 @@
+nav.navbar.navbar-expand-sm.navbar-light.bg-light.mb-3
+    .container
+        .navbar-brand My Website
+        button.navbar-toggler(type="button", data-bs-toggle="collapse", data-bs-target="#navbarSupportedContent", aria-controls="navbarSupportedContent", aria-expanded="false" aria-label="Toggle Navigation")
+            span.navbar-toggler-icon
+        .collapse.navbar-collapse#navbarSupportedContent
+            ul.navbar-nav
+                li.nav-item
+                    a.nav-link(href="/") Home
+                li.nav-item
+                    a.nav-link(href="/about") About
+                li.nav-item
+                    a.nav-link(href="/posts") Board
+            ul.navbar-nav.ms-auto
+                if isAuthenticated
+                    li.nav-item
+                        a.nav-link(href="/users/"+currentUser.username) My Account
+                    li.nav-item
+                        a.nav-link(href="/logout") Logout
+                else
+                    li.nav-item
+                        a.nav-link(href="/users/new") Sign Up
+                    li.nav-item
+                        a.nav-link(href="/login") Login
+                li.nav-item
+                    a.nav-link(href="/users") Users
