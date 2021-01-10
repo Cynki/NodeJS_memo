@@ -1,5 +1,8 @@
-var mongoose = require('mongoose');
-var bcrypt = require('bcryptjs');
+// var mongoose = require('mongoose');
+// var bcrypt = require('bcryptjs');
+
+import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
 
 // schema
 var userSchema = mongoose.Schema({
@@ -100,4 +103,5 @@ userSchema.methods.authenticate = function(password) {
 
 // model & export
 var User = mongoose.model('user', userSchema);
-module.exports = User;
+// module.exports = User;
+export default User;

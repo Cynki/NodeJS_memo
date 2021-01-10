@@ -2,7 +2,10 @@ var express = require('express');
 var router = express.Router();
 var User = require('../models/User');
 var util = require('../util');
-
+// import express from 'express';
+// import User from '../models/User.js';
+// import util from '../util.js';
+// var router = express.Router();
 // Index
 router.get('/', function(req, res) {
     User.find({})
@@ -88,3 +91,4 @@ router.delete('/:username', function(req, res) {
 });
 
 module.exports = router;
+// export default router;

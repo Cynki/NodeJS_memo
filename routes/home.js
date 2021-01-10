@@ -1,7 +1,9 @@
-var express = require('express');
+// var express = require('express');
+// var router = express.Router();
+// var passport = require('../config/passport');
+import express from 'express';
+import passport from '../config/passport.js';
 var router = express.Router();
-var passport = require('../config/passport');
-
 // Home
 router.get('/', function(req, res) {
     res.render('home/welcome');
@@ -53,4 +55,5 @@ router.get('/logout', function(req, res) {
     res.redirect('/');
 });
 
-module.exports = router;
+// module.exports = router;
+export default router;

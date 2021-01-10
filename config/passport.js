@@ -1,7 +1,10 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var User = require('../models/User');
-
+// import passport from 'passport';
+// import User from '../models/User.js';
+// import Local from 'passport-local';
+// var LocalStrategy = Local.Strategy;
 // Serialize & deserialize user
 passport.serializeUser(function(user, done) {
     done(null, user.id);
@@ -37,3 +40,4 @@ passport.use('local-login',
 );
 
 module.exports = passport;
+// export default passport;

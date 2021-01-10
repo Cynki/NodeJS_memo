@@ -17,4 +17,5 @@ util.parseError = function(errors) {
     return parsed;
 }
 
-module.exports = util;
+// module.exports = util;
+export default util;

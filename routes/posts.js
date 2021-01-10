@@ -1,8 +1,11 @@
-var express = require('express');
+// var express = require('express');
+// var router = express.Router();
+// var Post = require('../models/Post');
+// var util = require('../util');
+import express from 'express';
+import Post from '../models/Post.js';
+import util from '../util.js';
 var router = express.Router();
-var Post = require('../models/Post');
-var util = require('../util');
-
 // Index
 router.get('/', function(req, res) {
     Post.find({})
@@ -81,4 +84,5 @@ router.delete('/:id', function(req, res) {
     });
 });
 
-module.exports = router;
+// module.exports = router;
+export default router;

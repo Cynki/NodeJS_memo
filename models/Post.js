@@ -1,5 +1,5 @@
-var mongoose = require('mongoose');
-
+// var mongoose = require('mongoose');
+import mongoose from 'mongoose';
 // schema
 var postSchema = mongoose.Schema({
     title: {type: String, required: [true, 'Title is required!']},
@@ -11,4 +11,5 @@ var postSchema = mongoose.Schema({
 
 // model & export
 var Post = mongoose.model('post', postSchema);
-module.exports = Post;
+// module.exports = Post;
+export default Post;

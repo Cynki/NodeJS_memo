@@ -6,7 +6,14 @@ var flash = require('connect-flash');
 var session = require('express-session');
 var passport = require('./config/passport');
 var app = express();
-
+// import express from 'express';
+// import mongoose from 'mongoose';
+// import bodyParser from 'body-parser';
+// import methodOverride from 'method-override';
+// import flash from 'connect-flash';
+// import session from 'express-session';
+// import passport from './config/passport.js';
+// var app = express();
 // DB setting
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
